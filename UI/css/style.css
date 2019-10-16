@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css?family=Mansalva&display=swap');
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
+@import url('https://fonts.googleapis.com/css?family=Life+Savers:800&display=swap');
+
+/* Table of contents
+––––––––––––––––––––––––––––––––––––––––––––––––––
+- Base Style
+- Structure
+- Typography
+- Boxes
+- Miscellaneous
+*/
+
+/* Base Style
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+	html { font-size: 90%; }
+	.wrapper { text-align: center; }
+    .left { text-align: left; }
+    a { color:inherit; text-decoration: none; }
+
+
+/* Structure
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+	.abbb,.bbaba,.bbabb,.bbabc,.bbaa,.bbbbaaa,
+    .bbbbbaa,.bbbbcaa,.bbbbabb { align-items: center; }
+    .a { 
+    	margin-top: -.5rem; 
+		padding-top: 1rem; 
+		margin-left: -.5rem;
+		margin-right: -.5rem; 
+	}
+	.ba,
+	.bc { margin-left: -.5rem; margin-right: -.5rem; }
+	.c {
+		margin-bottom: -.5rem;
+		margin-left: -.5rem;
+		margin-right: -.5rem;
+	}
+	.bbb { margin-top: 1.5rem; margin-bottom: 1.5rem; }
+	.bbba { margin-right: 1.5rem; }
+	.bbbb { margin-left: 1.5rem; }
+	
+	
+/* Typography
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+	/* Font Family
+	–––––––––––––––––––––––––––––––––––––––––––––––––– */
+		.abab,.bbbaab,.bbbabb,.bbbacb,.bbbadb,.bbbbaab,
+ 		.bbbbbab,.bbbbcab { font-family: 'Mansalva', cursive; }
+
+    	.cbb,.bbbaac,.bbbabc,.bbbacc,.bbbadc,.bbbbaaa,.bbbbbaa,
+	    .bbbbcaa,.bbbbaba>input,.bbbbbb { font-family: "Open Sans", sans-serif; }
+
+        .adaab,.adabb,.abbb,
+    	.abbc { font-family: "Life Savers", cursive;  }
+		 
+	/* Font Size
+	–––––––––––––––––––––––––––––––––––––––––––––––––– */
+		.abab { font-size: .9rem; }
+
+		.cbb,.bbbbaba>input,
+        .bbbbbb { font-size: 1.1rem; }
+
+		.bbab { font-size: 1.1rem; }
+
+		.bbbbaaa,.bbbbaab,.bbbbbaa,.bbbbbab,
+	    .bbbbcaa,.bbbbcab {  font-size: 1.5rem; }
+	    
+        .adaab,.adabb { font-size: 1.1rem; }
+    
+
+	/* Font Color
+	–––––––––––––––––––––––––––––––––––––––––––––––––– */
+		.abab,
+		.adaab,
+	    .adabb, 
+		.abbc,
+		.adaaa,
+	    .adaba { color: #ff8200; }
+	    .cbb { color: #c2ccc2; }
+	    .bbbbaaa,
+	   	.bbbbaab,
+	    .bbbbbaa,
+	    .bbbbbab,
+	    .bbbbcaa,
+	    .bbbbcab,
+		.bbbaab,
+	    .bbbabb,
+	    .bbbacb,
+	    .bbbadb { color: rgb(51, 51, 51);}
+		.bbbaac,
+	    .bbbabc,
+	    .bbbacc,
+	    .bbbadc { color: rgb(48, 48, 48); }
+		.abbb { color: #ffffff; }
+        .bbbbaba>input { color: rgb(85, 85, 85); }
+        .bbbbbb { color: rgb(112, 112, 112); }
+
+	/* Images
+	–––––––––––––––––––––––––––––––––––––––––––––– */
+					
+	/* Miscellaneous
+	–––––––––––––––––––––––––––––––––––––––––––––––––– */
+		.bbbbaaa,
+	    .bbbbaab,
+	    .bbbbbaa,
+	    .bbbbbab,
+	    .bbbbcaa,
+	    .bbbbcab,
+		.bbbaab,
+	    .bbbabb,
+	    .bbbacb,
+	    .bbbadb { font-weight: 700; }
+	 	.bbbaac,
+	    .bbbabc,
+	    .bbbacc,
+	    .bbbadc { text-align: justify; text-justify: inter-word; padding: 1rem; }
+		
+/* Boxes
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+	/* Borders
+	–––––––––––––––––––––––––––––––––––––––––––––––––– */
+		.abaa { border-radius: .8rem; }
+		.bbbbcb,
+        .bbbbaba { border: 1px solid #c2ccc2; }
+        .bbaba,
+        .bbabb,
+        .bbabc,
+        .bbbbabb { border: 1px solid rgba(0, 0, 0, 0.25) }
+        .cbbb,
+        .cbbc,
+        .cbbd,
+        .cbbe { border-right: 2px solid rgb(204, 204, 204); }
+		
+	/* Background-image
+	–––––––––––––––––––––––––––––––––––––––––––––––––– */
+		body { background-image: url('../images/body.png'); }
+		.a { background-image: url('../images/background-top.png'); } 
+		.c { background-image: url('../images/background-bottom.png'); }
+		.abaa { background-image: url('../images/logo.jpg'); }
+		.bba,
+        .baa,
+        .bca { background-image: url('../images/header.png'); }
+        .bbbc { background-image: url('../images/hr-vr.png'); }
+		.bbaba,
+    	.bbabb,
+    	.bbabc,
+        .bbbbabb { background-image: linear-gradient(to bottom, #ebebea, #c2c1be); }
+        .bbbbac,
+        .bbbbbc { background-image: url('../images/hr-hz.png'); }
+
+	/* Background-size
+	–––––––––––––––––––––––––––––––––––––––––––––––––– */
+		body,
+		.a,
+		.c,
+		.abaa,
+		.bba,
+        .bbbc { background-size: 100% 100%; }
+
+	/* Miscellaneous
+	–––––––––––––––––––––––––––––––––––––––––––––––––– */
+		.abaa { background-color: #FF8200; }
+    	.bba { background-color: #dddddc; }
+	    .bbaba,
+	    .bbabb,
+	    .bbabc { 
+	    	margin: .9rem .2rem .9rem .2rem; 
+	    }
+		
+/* Miscellaneous
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+	
