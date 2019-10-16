@@ -1,0 +1,82 @@
+/* Table of contents
+––––––––––––––––––––––––––––––––––––––––––––––––––
+- Global
+- First Level
+- Second Level
+- Third Level
+- Fourth Level
+- Fifth Level
+- Sixth Level
+*/
+
+/* Global
+–––––––––––––––––––––––––––––––––––––––––––––––––– 
+*/
+	html { font-size: 90%; }
+	body { grid-template-rows: 58.5rem; }
+	body, 
+	.wrapper { display: grid; }
+
+/* First Level
+–––––––––––––––––––––––––––––––––––––––––––––––––– 
+*/
+	.a { grid-template-columns: 5% 15% 1fr 19%; }
+	.b { grid-template-columns: 3.5% 1fr 3.5%; }
+	.c { grid-template-columns: 1fr 50% 1fr; }
+
+/* Second Level
+–––––––––––––––––––––––––––––––––––––––––––––––––– 
+*/
+	.aa { grid-template-columns: 1fr 1fr 1fr; }
+	.ab { grid-template-columns: 33% 1fr; }
+	.ad { grid-template-rows: 35% 1fr; }
+	.bb { grid-template-rows: 9% 1fr; }
+	.cb { grid-template-rows: 1fr 30% 1fr; }
+	.ba,
+	.bc { grid-template-rows: 9% 1fr; }
+
+/* Third Level
+–––––––––––––––––––––––––––––––––––––––––––––––––– 
+*/ 
+	.aba { grid-template-rows: 1fr 30%; }
+	.abb { grid-template-rows: 1fr 50% 1fr; }
+	.ada { grid-template-columns: 1fr 1fr; }
+	.bba { grid-template-columns: 2.7% 14.5% 1fr; }
+	.bbb { grid-template-columns: 1fr 1% 24%; }
+	.cbb { grid-template-columns: 8% 18% 15% 12% 10% 12%; }
+
+/* Fourth Level
+–––––––––––––––––––––––––––––––––––––––––––––––––– 
+*/
+	.adaa,
+	.adab { grid-template-columns: 20% 1fr; }
+	.bbba { grid-template-rows: 1fr 1fr 1fr 1fr; }
+	.bbbb { grid-template-rows: 28% 1fr 1fr;  }
+	.bbab { grid-template-columns: 1fr 1fr 1fr; }
+
+/* Fifth Level
+–––––––––––––––––––––––––––––––––––––––––––––––––– 
+*/
+	.bbbba,
+	.bbbbc { grid-template-rows: 1fr 1fr 50%; }
+	.bbbbb { grid-template-rows: 1fr 50% 1fr; }
+	.bbbaa,
+	.bbbab,
+	.bbbac,
+	.bbbad { grid-template-columns: 3% 9% 1fr; }
+
+/* Sixth Level
+–––––––––––––––––––––––––––––––––––––––––––––––––– 
+*/
+	.bbbbaa,
+	.bbbbba,
+	.bbbbca { grid-template-columns: 12% 1fr; }
+	.bbbbab { grid-template-columns: 75% 1fr; }
+
+
+
+
+
+
+
+

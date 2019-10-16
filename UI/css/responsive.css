@@ -1,0 +1,118 @@
+/*
+* website name
+* Copyright
+* website link
+* license
+* license link
+* date
+*/
+
+/* Table of contents
+––––––––––––––––––––––––––––––––––––––––––––––––––
+- Larger than mobile
+- Larger than phablet 
+- Larger than tablet
+- Larger than desktop
+- Larger than Desktop HD
+*/
+
+
+/* Larger than mobile
+––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+	@media (min-width: 500px) {
+		.container { grid-template-rows: 12% 1fr 10%; }
+
+		.a { grid-template-columns: 0% 45% 0% 1fr; }
+		.b { grid-template-columns: 0% 1fr 0%; }
+		.c { grid-template-columns: 0% 1fr 0%; }
+
+		.ab { grid-template-columns: 0% 1fr; }
+		.ad { grid-template-rows: 1fr 0%; }
+		.bb { grid-template-rows: 8% 1fr; }
+		.cb { grid-template-rows: 1fr 22% 1fr; }
+
+		.abb { grid-template-rows: 0% 1fr 0%; }
+		.ada { grid-template-columns: 1fr 1fr; }
+		.bba { grid-template-columns: 5% 1fr 0%; }
+		.bbb { grid-template-columns: 1fr 0% 0%; }
+		.cbb { grid-template-columns: 0% repeat(5, 1fr); }
+
+		.adaa,
+		.adab { grid-template-columns: 20% 1fr; }
+		.bbba { grid-template-rows: repeat(4, 1fr); }
+		.bbab { grid-template-columns: repeat(3, 1fr); }
+
+		.bbbaa,.bbbab,.bbbac,
+		.bbbad { grid-template-columns: 5% 17% 1fr; }
+
+		.aa,.ac,.ba,.bc,.ca,.cc,.aba,.adb.abba,.abbc,.bbac,
+		.bbbb,.bbbc { visibility: hidden; }
+
+	}
+
+/* Larger than phablet
+––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+	@media (min-width: 700px) {
+		
+	}
+
+/* Larger than tablet
+––––––––––––––––––––––––––––––––––––––––––––––––––
+*/ 
+	@media (min-width: 950px) {
+		.aa,.ac,.ba,.bc,.ca,.cc,.aba,.adb,.cba,.cbc,.abba,
+		.abbc,.bbac,.bbbb,.bbbc { visibility: unset; }
+
+		.a { grid-template-columns: 5% 15% 1fr 19%; }
+		.b { grid-template-columns: 3.5% 1fr 3.5%; }
+		.c { grid-template-columns: 1fr 50% 1fr; }
+
+		.aa { grid-template-columns: 1fr 1fr 1fr; }
+		.ab { grid-template-columns: 33% 1fr; }
+		.ad { grid-template-rows: 35% 1fr; }
+		.bb { grid-template-rows: 9% 1fr; }
+		.cb { grid-template-rows: 1fr 20% 1fr; }
+		.ba,
+		.bc { grid-template-rows: 9% 1fr; }
+
+		.aba { grid-template-rows: 1fr 30%; }
+		.abb { grid-template-rows: 1fr 50% 1fr; }
+		.ada { grid-template-columns: 1fr 1fr; }
+		.bba { grid-template-columns: 2.7% 14.5% 1fr; }
+		.bbb { grid-template-columns: 1fr 1% 24%; }
+		.cbb { grid-template-columns: 8% 18% 15% 12% 10% 12%; }
+
+		.adaa,
+		.adab { grid-template-columns: 20% 1fr; }
+		.bbba { grid-template-rows: 1fr 1fr 1fr 1fr; }
+		.bbbb { grid-template-rows: repeat(3, 30%);  }
+		.bbab { grid-template-columns: 1fr 1fr 1fr; }
+
+		.bbbba { grid-template-rows: 1fr 25% 25% 30% }
+		.bbbbc { grid-template-rows: 35% 1fr 40%; }
+		.bbbbb { grid-template-rows: 1fr 45% 1fr; }
+		.bbbaa,.bbbab,.bbbac,
+		.bbbad { grid-template-columns: 3% 9% 1fr; }
+
+		.bbbbaa,.bbbbba,
+		.bbbbca { grid-template-columns: 12% 1fr; }
+		.bbbbab { grid-template-columns: 75% 1fr; }
+
+	}
+
+/* Larger than desktop
+––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+	@media (min-width: 1000px) {
+		
+
+	}
+
+/* Larger than Desktop HD
+––––––––––––––––––––––––––––––––––––––––––––––––––
+*/
+	@media (min-width: 1200px) {
+		
+	}
