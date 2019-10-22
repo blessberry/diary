@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Mansalva&display=swap');
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
 @import url('https://fonts.googleapis.com/css?family=Life+Savers:800&display=swap');
 
 /* Table of contents
@@ -16,6 +15,7 @@
 	html { font-size: 90%; }
 	.wrapper { text-align: center; }
     .left { text-align: left; }
+    .center { vertical-align: middle; }
     a { color:inherit; text-decoration: none; }
 
 
@@ -39,8 +39,14 @@
 	.bbb { margin-top: 1.5rem; margin-bottom: 1.5rem; }
 	.bbba { margin-right: 1.5rem; }
 	.bbbb { margin-left: 1.5rem; }
-	
-	
+	.lg-bbb { margin: 3rem; }
+	.lg-bbbb { margin-left: 2rem; }
+	.rg-bbbe { margin-top: 2rem; }
+	.en-bbba { margin-right: 2rem; }
+	.ql-toolbar { text-align: left; }
+	.pr-bbba,.pr-bbbb { margin-top: 4rem; margin-right: 7rem; }
+	.pr-bbbbc { align-items: center; }
+
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
@@ -50,24 +56,48 @@
  		.bbbbbab,.bbbbcab { font-family: 'Mansalva', cursive; }
 
     	.cbb,.bbbaac,.bbbabc,.bbbacc,.bbbadc,.bbbbaaa,.bbbbbaa,
-	    .bbbbcaa,.bbbbaba>input,.bbbbbb { font-family: "Open Sans", sans-serif; }
+	    .bbbbcaa,.bbbbaba>input,.bbbbbb,.lg-abaa,
+		.lg-abba,.lg-abdb,.lg-bbbbab,.lg-bbbbbb,
+		.lg-bbbbcb,.lg-bbbbdb,.lg-abab>input,
+		.lg-abbb>input,.lg-bbbbeb,.lg-bbbbba
+		.lg-bbbbca,.lg-bbbbda,
+		.lg-bbbbea,.lg-abcb>button,.rg-bbba,
+		.rg-bbbb,
+		.rg-bbbc,
+		.rg-bbbd,
+		.rg-bbbeaa,
+		.rg-bbbeba,
+		.rg-bbbeca,
+		.rg-bbbeda,
+		.rg-bbbeeb,
+		.rg-bbbefb,
+		.rg-bbbeg,
+		.pr-bbba,
+		.pr-bbbba,
+		.pr-bbbbb,
+		.pr-bbbbd,
+		.pr-bbbbca { font-family: "Open Sans", sans-serif; }
 
         .adaab,.adabb,.abbb,
     	.abbc { font-family: "Life Savers", cursive;  }
 		 
 	/* Font Size
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
-		.abab { font-size: .9rem; }
+		.abab,
+		.lg-abdb { font-size: .9rem; }
 
 		.cbb,.bbbbaba>input,
-        .bbbbbb { font-size: 1.1rem; }
+        .bbbbbb,.bbab,.adaab,.adabb,.pr-bbbaa,
+		.pr-bbbab, 
+		.pr-bbbac,
+		.pr-bbbad,
+		.pr-bbbae,
+		.pr-bbbbb,
+		.pr-bbbbca { font-size: 1.1rem; }
 
-		.bbab { font-size: 1.1rem; }
-
-		.bbbbaaa,.bbbbaab,.bbbbbaa,.bbbbbab,
-	    .bbbbcaa,.bbbbcab {  font-size: 1.5rem; }
-	    
-        .adaab,.adabb { font-size: 1.1rem; }
+		.bbbbaaa,.bbbbaab,.bbbbbaa,.bbbbbab,.lg-bbbbab,
+	    .bbbbcaa,.bbbbcab,.rg-bbba,.pr-bbbba {  font-size: 1.5rem; }
+	   
     
 
 	/* Font Color
@@ -79,6 +109,8 @@
 		.adaaa,
 	    .adaba { color: #ff8200; }
 	    .cbb { color: #c2ccc2; }
+	    .lg-abaa,
+		.lg-abba,
 	    .bbbbaaa,
 	   	.bbbbaab,
 	    .bbbbbaa,
@@ -88,20 +120,45 @@
 		.bbbaab,
 	    .bbbabb,
 	    .bbbacb,
-	    .bbbadb { color: rgb(51, 51, 51);}
+	    .bbbadb,
+	    .lg-bbbbba,
+		.lg-bbbbca,
+		.lg-bbbbda,
+		.lg-bbbbea,
+		.rg-bbba,
+		.rg-bbbb,
+		.rg-bbbc,
+		.rg-bbbd,
+		.rg-bbbeaa,
+		.rg-bbbeba,
+		.rg-bbbeca,
+		.rg-bbbeda,
+		.rg-bbbeeb,
+		.rg-bbbefb,
+		.pr-bbbba,
+		.pr-bbbbb,
+		.pr-bbbbca,
+		.pr-bbbbcb { color: rgb(51, 51, 51);}
 		.bbbaac,
 	    .bbbabc,
 	    .bbbacc,
-	    .bbbadc { color: rgb(48, 48, 48); }
+	    .bbbadc,
+	    .rg-bbbeg>button { color: rgb(48, 48, 48); }
 		.abbb { color: #ffffff; }
         .bbbbaba>input { color: rgb(85, 85, 85); }
-        .bbbbbb { color: rgb(112, 112, 112); }
+        .bbbbbb, .pr-bbba,
+        .lg-abdb,
+		.lg-bbbbbb,
+		.lg-bbbbcb,
+		.lg-bbbbdb,
+		.lg-bbbbeb { color: rgb(112, 112, 112); }
 
 	/* Images
 	–––––––––––––––––––––––––––––––––––––––––––––– */
 					
 	/* Miscellaneous
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
+		.lg-bbbbab,
 		.bbbbaaa,
 	    .bbbbaab,
 	    .bbbbbaa,
@@ -111,11 +168,25 @@
 		.bbbaab,
 	    .bbbabb,
 	    .bbbacb,
-	    .bbbadb { font-weight: 700; }
+	    .bbbadb,
+	    .rg-bbba,
+	    .pr-bbbba { font-weight: 700; }
 	 	.bbbaac,
 	    .bbbabc,
 	    .bbbacc,
 	    .bbbadc { text-align: justify; text-justify: inter-word; padding: 1rem; }
+
+	    .rg-bbbb,
+		.rg-bbbc,
+		.rg-bbbd,
+		.rg-bbbeaa,
+		.rg-bbbeba,
+		.rg-bbbeca,
+		.rg-bbbeda,
+		.rg-bbbeeb,
+		.rg-bbbefb,
+		.rg-bbbeg>button,
+		.pr-bbbbd>button { font-weight: 400; }
 		
 /* Boxes
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -133,7 +204,19 @@
         .cbbc,
         .cbbd,
         .cbbe { border-right: 2px solid rgb(204, 204, 204); }
-		
+		.lg-ababa>input,
+		.lg-abbba>input { border: 1px solid rgb(201, 200, 199); box-shadow: rgba(0, 0, 0, 0.075) 0px 1px 1px 0px inset; }
+		.rg-bbbeg>button,
+		.pr-bbbbd>button { border: 1px solid rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25) rgba(0,0,0,0.25); }
+		.pr-bbbaa,
+		.pr-bbbab, 
+		.pr-bbbac,
+		.pr-bbbad,
+		.pr-bbbae { border-top: 1px solid rgb(229, 229, 229); border-right: 1px solid rgb(229, 229, 229); border-left: 1px solid rgb(229, 229, 229); }
+		.pr-bbbae { border-bottom: 1px solid rgb(229, 229, 229); }
+		.en-bbbaa { border-bottom-left-radius: .5rem; border-bottom-right-radius: .5rem; }
+
+
 	/* Background-image
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
 		body { background-image: url('../images/body.png'); }
@@ -143,13 +226,15 @@
 		.bba,
         .baa,
         .bca { background-image: url('../images/header.png'); }
-        .bbbc { background-image: url('../images/hr-vr.png'); }
+        .bbbc,
+        .lg-bbbc { background-image: url('../images/hr-vr.png'); }
 		.bbaba,
     	.bbabb,
     	.bbabc,
         .bbbbabb { background-image: linear-gradient(to bottom, #ebebea, #c2c1be); }
         .bbbbac,
         .bbbbbc { background-image: url('../images/hr-hz.png'); }
+        .pr-bbbbd>button { background-image: linear-gradient(rgb(235, 235, 234) rgb(194, 193, 190)) }
 
 	/* Background-size
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -158,17 +243,28 @@
 		.c,
 		.abaa,
 		.bba,
-        .bbbc { background-size: 100% 100%; }
+        .bbbc,
+        .lg-bbbc { background-size: 100% 100%; }
 
 	/* Miscellaneous
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
 		.abaa { background-color: #FF8200; }
-    	.bba { background-color: #dddddc; }
+    	.bba,
+    	.ql-toolbar { background-color: #dddddc; }
 	    .bbaba,
 	    .bbabb,
-	    .bbabc { 
-	    	margin: .9rem .2rem .9rem .2rem; 
-	    }
+	    .bbabc { margin: .9rem .2rem .9rem .2rem; }
+	    .lg-bbbc { margin-bottom: 7.5rem; }
+	    .lg-bbbc { margin-top: -1rem; }
+	    .rg-bbb { padding-top: 2rem; }
+	    .rg-bbbeg>button { background-color: rgb(194, 193, 190); }
+	    .pr-bbbaa,
+		.pr-bbbab, 
+		.pr-bbbac,
+		.pr-bbbad,
+		.pr-bbbae,
+		.en-bbbaa { background-color: rgb(255, 255, 255); }
+
 		
 /* Miscellaneous
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
