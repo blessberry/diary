@@ -1,7 +1,7 @@
 import 'dotenv/config';
 import express from 'express';
-import routes from './routes/routes';
-import responses from './helpers/responses';
+import routes from './API/routes/routes';
+import responses from './API/helpers/responses';
 
 const app = express();
 const port = process.env.PORT || 5000;
