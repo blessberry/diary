@@ -18,7 +18,7 @@ class Entry {
 	read(index = null) {
 		return index ? this.entries.find(i => i.id === index) : this.entries;
 	}
-
+	//modify entries method is this
 	update(info, index = null) {
 		const entry = {
 			...info,

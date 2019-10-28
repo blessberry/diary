@@ -14,6 +14,7 @@ export default {
 			? res.status(200).json({status: 200, message: 'OK', data: entry}) 
 			: res.status(404).json({status: 404, error: 'Not Found'});
 	},
+	//modify entries is this
 	update: (req, res, next) => {
 		const entry = model.update(req.body, req.params.id);
 		entry 
