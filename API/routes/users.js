@@ -7,7 +7,9 @@ const router = express.Router();
 router.route('/signup')
 	  .post(controller.create)
 
-
+router.route('/signin')
+	  .post(controller.create)
+	  
 router.route('/users(/:id)?')
 	  .get(controller.read)
 	  .patch(controller.update)
