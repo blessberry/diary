@@ -21,6 +21,7 @@ export default {
 			? res.status(200).json({status: 200, message: 'OK', data: entry}) 
 			: res.status(404).json({status: 404, error: 'Not Found'});
 	},
+	//delete entries is this
 	delete: (req, res, next) => {
 		const entry = model.delete(req.params.id);
 		entry 

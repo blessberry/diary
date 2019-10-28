@@ -29,6 +29,7 @@ class Entry {
 			: this.entries.map(i => Object.assign(i, entry));
 	    return index ? this.entries.find(i => i.id == index) : this.entries;
 	}
+	//delete entries method is this
 	delete(index = null) {
 		const entry = index ? this.entries.find(i => i.id === index) : this.entries;
 		index 
