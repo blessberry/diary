@@ -9,6 +9,7 @@ router.route('/(:id)?')
 	  .post(controller.create)
 	  .get(controller.read)
 	  .patch(controller.update)
+	  //delete route is this
 	  .delete(controller.delete)
 
 
