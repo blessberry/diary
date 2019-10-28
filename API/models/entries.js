@@ -4,6 +4,7 @@ class Entry {
 	constructor() {
 		this.entries = [];
 	}
+	//add entries method is this
 	create(info, user) {
 		const entry = {
 		  id: uuid.v4(),

@@ -1,6 +1,7 @@
 import model from '../models/entries';
 
 export default {
+	//add entries is this
 	create: (req, res, next) => {
 		const entry = req.params.id ? null : model.create(req.body);
 		entry 
