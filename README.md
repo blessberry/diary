@@ -41,24 +41,32 @@ POST  | /auth/signup  | Register to the platform  |
 POST  | /auth/signin  | Login to the platform |
 
 
-entries                                                	Admin
-------------- |											------------- |
+entries                                                
+------------- |										
 
-Method        | EndPoint      | Enable a user: |		Method        | EndPoint      | Enable a user: |
-------------- | ------------- | ---------------			------------- | ------------- | ---------------
-POST  | /entries  | Create an entry   |					POST  | /entries | Create an entry |
-PATCH | /entries/<entry_id>  | Update the entry |		PATCH  | /entries | Update entries |
-GET | /entries/<entry_id>  | Get the entry details |	GET  | /entries | Get entries |
-DELETE | /entries/<entry_id>  | delete the entry |		DELETE | /entries/  | delete the entries |
+Method        | EndPoint      | Enable a user: |	
+------------- | ------------- | ---------------		
+POST  | /entries  | Create an entry   |				
+PATCH | /entries/<entry_id>  | Update the entry |	
+GET | /entries/<entry_id>  | Get the entry details |
+DELETE | /entries/<entry_id>  | delete the entry |	
 
+Admin
+------------- |
 
-General													Admin
-------------- |											------------- |
+Method        | EndPoint      | Enable a user: |
+------------- | ------------- | ---------------
+POST  | /entries | Create an entry |
+PATCH  | /entries | Update entries |
+GET  | /entries | Get entries |
 
-Method        | EndPoint      | Enable a user: |		Method        | EndPoint      | Enable a user: |
-------------- | ------------- | ---------------			------------- | ------------- | ---------------
-GET  | /entries/<entry_id>  | View a specific entry |	GET  | /entries  | View all entries |
-GET  | /entries/  | View a all available entries |		DELETE | /entries/<entry_id>  | Delete a particular entry |
+General												
+------------- |										
+
+Method        | EndPoint      | Enable a user: |	
+------------- | ------------- | ---------------		
+GET  | /entries/<entry_id>  | View a specific entry |
+GET  | /entries/  | View a all available entries |	
 
 ---
 
