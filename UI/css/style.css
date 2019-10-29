@@ -220,20 +220,20 @@
 	/* Background-image
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
 		body { background-image: url('../images/body.png'); }
-		.a { background-image: url('../images/background-top.png'); } 
-		.c { background-image: url('../images/background-bottom.png'); }
+		.a { background-image: url('../images/backgroundTop.png'); } 
+		.c { background-image: url('../images/backgroundBottom.png'); }
 		.abaa { background-image: url('../images/logo.jpg'); }
 		.bba,
         .baa,
         .bca { background-image: url('../images/header.png'); }
         .bbbc,
-        .lg-bbbc { background-image: url('../images/hr-vr.png'); }
+        .lg-bbbc { background-image: url('../images/hrvr.png'); }
 		.bbaba,
     	.bbabb,
     	.bbabc,
         .bbbbabb { background-image: linear-gradient(to bottom, #ebebea, #c2c1be); }
         .bbbbac,
-        .bbbbbc { background-image: url('../images/hr-hz.png'); }
+        .bbbbbc { background-image: url('../images/hrHz.png'); }
         .pr-bbbbd>button { background-image: linear-gradient(rgb(235, 235, 234) rgb(194, 193, 190)) }
 
 	/* Background-size
