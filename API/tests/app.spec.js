@@ -5,6 +5,6 @@ const { expect } = chai;
 
 describe('GET /', () => {
   it('should return a string', () => {
-        expect('hello world').to.equal('hello world');
+        expect('hello').to.equal('hello');
       });
 });
