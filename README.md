@@ -1,7 +1,9 @@
 
-[![Build Status](https://travis-ci.com/blessberry/diary.svg?branch=develop)](https://travis-ci.com/blessberry/diary)
-[![Coverage Status](https://coveralls.io/repos/github/blessberry/diary/badge.svg?branch=develop)](https://coveralls.io/github/blessberry/diary?branch=develop)
-[![Maintainability](https://api.codeclimate.com/v1/badges/263b5a30bc5ce3187d6a/maintainability)](https://codeclimate.com/github/blessberry/diary/maintainability)
+[![Status](https://travis-ci.org/rstacruz/REPO.svg?branch=master)](https://travis-ci.org/rstacruz/REPO)
+[![CodeClimate](http://img.shields.io/codeclimate/github/rstacruz/REPO.svg?style=flat)](https://codeclimate.com/github/rstacruz/REPO 
+"CodeClimate")
+[![Coveralls](http://img.shields.io/coveralls/rstacruz/REPO.svg?style=flat)](https://coveralls.io/r/rstacruz/REPO)
+
 
 
 # Diary
