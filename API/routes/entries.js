@@ -1,15 +1,14 @@
 import express from 'express';
-import responses from '../helpers/responses';
+import middlewares from '../middlewares/middlewares';
 import controller from '../controllers/entries';
 
 const router = express.Router();
 
 router.route('/(:id)?')
-	  //.all(auth)
+	  .all(middlewares.auth)
 	  .post(controller.create)
 	  .get(controller.read)
 	  .patch(controller.update)
-	  //delete route is this
 	  .delete(controller.delete)
 
 

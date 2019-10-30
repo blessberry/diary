@@ -5,7 +5,7 @@ import responses from '../helpers/responses';
 
 const router = express.Router();
 
-router.get('/', (req, res, next) => res.status(200).json('Hello World'));
+router.get('/', (req, res, next) => res.status(200).send('hello world'));
 router.use('/api/v1/auth', users);
 router.use('/api/v1/entries', entries);
 

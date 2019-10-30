@@ -4,8 +4,7 @@ class Entry {
 	constructor() {
 		this.entries = [];
 	}
-	//add entries method is this
-	create(info, user) {
+	create(user, info) {
 		const entry = {
 		  id: uuid.v4(),
 	      ...info,
@@ -15,26 +14,26 @@ class Entry {
     	this.entries.push(entry);
 	    return entry;
   	}
-	read(index = null) {
-		return index ? this.entries.find(i => i.id === index) : this.entries;
+	read(user, index = null) {
+		return index 
+				? this.entries.find(i => i.id === index && i.user === user) 
+				: this.entries.filter(i => i.user === user);
 	}
-	//modify entries method is this
-	update(info, index = null) {
+	update(user, info, index = null) {
 		const entry = {
 			...info,
 			modifiedDate: new Date()
 		}
 		index 
-			? Object.assign(this.entries.find(i => i.id === index), entry) 
-			: this.entries.map(i => Object.assign(i, entry));
-	    return index ? this.entries.find(i => i.id == index) : this.entries;
+			? Object.assign(this.entries.find(i => i.id === index && i.user === user), entry) 
+			: this.entries.map(i => i.user === user ? Object.assign(i, entry) : i);
+	    return index ? this.entries.find(i => i.id == index && i.user === user) : this.entries.filter(i => i.user === user);
 	}
-	//delete entries method is this
-	delete(index = null) {
-		const entry = index ? this.entries.find(i => i.id === index) : this.entries;
+	delete(user, index = null) {
+		const entry = index ? this.entries.find(i => i.id === index && i.user === user) : this.entries.filter(i => i.user === user);
 		index 
-			? this.entries.splice(this.entries.findIndex(i => i.id === index), 1)
-			: this.entries.length = 0;
+			? this.entries.splice(this.entries.findIndex(i => i.id === index && i.user === user), 1)
+			: this.entries.map((i, j) => i.user === user ? i.splice(j, 1) : i);
 		return entry;
 	}
 }

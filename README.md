@@ -5,7 +5,7 @@
 
 
 ## Links
-- UI Templates can be found [here](http://blessberry.github.io/diary.git/)
+- UI Templates can be found [here](http://blessberry.github.io/diary/UI/login.html)
 - This project is managed with Pivotal Tracker [here](https://www.pivotaltracker.com/n/projects/2406365)
 
 # Features
@@ -67,6 +67,7 @@ Method        | EndPoint      | Enable a user: |
 ------------- | ------------- | ---------------		
 GET  | /entries/<entry_id>  | View a specific entry |
 GET  | /entries/  | View a all available entries |	
+
 
 ---
 

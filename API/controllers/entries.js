@@ -1,31 +1,29 @@
 import model from '../models/entries';
 
 export default {
-	//add entries is this
+
 	create: (req, res, next) => {
-		const entry = req.params.id ? null : model.create(req.body);
+		const entry = req.params.id ? null : model.create(req.body.user, req.body);
 		entry 
 			? res.status(201).json({status: 201, message: 'Created', data: entry}) 
-			: res.status(400).json({status: 400, error: 'Bad Request'});
+			: res.status(400).json({status: 400, error: 'Not Created'});
 	},
 	read: (req, res, next) => {
-		const entry = model.read(req.params.id);
+		const entry = model.read(req.body.user, req.params.id);
 		entry 
 			? res.status(200).json({status: 200, message: 'OK', data: entry}) 
 			: res.status(404).json({status: 404, error: 'Not Found'});
 	},
-	//modify entries is this
 	update: (req, res, next) => {
-		const entry = model.update(req.body, req.params.id);
+		const entry = model.update(req.body.user, req.body, req.params.id);
 		entry 
 			? res.status(200).json({status: 200, message: 'OK', data: entry}) 
-			: res.status(404).json({status: 404, error: 'Not Found'});
+			: res.status(404).json({status: 404, error: 'Not Updated'});
 	},
-	//delete entries is this
 	delete: (req, res, next) => {
-		const entry = model.delete(req.params.id);
+		const entry = model.delete(req.body.user, req.params.id);
 		entry 
 			? res.status(200).json({status: 200, message: 'OK', data: entry}) 
-			: res.status(404).json({status: 404, error: 'Not Found'});
+			: res.status(404).json({status: 404, error: 'Not Deleted'});
 	}
 }

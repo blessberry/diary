@@ -14,7 +14,7 @@ class User {
     	this.users.push(user);
 	    return user;
   	}
-	read(index = null) {
+	read(index) {
 		return index ? this.users.find(i => i.id === index) : this.users;
 	}
 
@@ -34,6 +34,13 @@ class User {
 			? this.users.splice(this.users.findIndex(i => i.id === index), 1)
 			: this.users.length = 0;
 		return user;
+	}
+	email(email) {
+		return this.users.find(i => i.email === email);
+
+	}
+	user(id) {
+		return this.users.find(i => i.id === id);
 	}
 }
 export default new User();
