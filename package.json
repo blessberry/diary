@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha API/tests/ --require esm --recursive --exit",
+    "test": "mocha API/tests/ --require esm --recursive",
     "start": "nodemon -r esm app.js",
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
   },
