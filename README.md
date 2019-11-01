@@ -75,7 +75,6 @@ GET  | /entries/<entry_id>  | View a specific entry |
 GET  | /entries/  | View a all available entries |	
 
 
----
 
 ## Author
 - [Beraka Emmanuel](https://github.com/blessberry)
