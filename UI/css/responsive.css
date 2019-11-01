@@ -37,17 +37,32 @@
 		.bba { grid-template-columns: 5% 1fr 0%; }
 		.bbb { grid-template-columns: 1fr 0% 0%; }
 		.cbb { grid-template-columns: 0% repeat(5, 1fr); }
+		.lg-abc, .lg-abd { grid-template-columns: 0% 1fr; }
+		.lg-aba, .lg-abb { grid-template-columns: 40% 1fr; }
+		.pr-bbb { grid-template-columns: 45% 1fr; }
 
 		.adaa,
 		.adab { grid-template-columns: 20% 1fr; }
 		.bbba { grid-template-rows: repeat(4, 1fr); }
 		.bbab { grid-template-columns: repeat(3, 1fr); }
+		.pr-bbba { grid-template-rows: 30% repeat(4, 0%); }
+		.pr-bbbb { grid-template-rows: 5% 30% 20% 1fr; }
 
 		.bbbaa,.bbbab,.bbbac,
 		.bbbad { grid-template-columns: 5% 17% 1fr; }
 
 		.aa,.ac,.ba,.bc,.ca,.cc,.aba,.adb.abba,.abbc,.bbac,
-		.bbbb,.bbbc { visibility: hidden; }
+		.bbbb,.bbbc, .lg-bbbb, .lg-bbbc { visibility: hidden; }
+		.rg-bbbee,
+		.rg-bbbef { display: none; }
+		.lg-bbb { grid-template-columns: 100% 1fr 1fr; }
+		.rg-bbbea,
+		.rg-bbbeb,
+		.rg-bbbec,
+		.rg-bbbed,
+		.rg-bbbee,
+		.rg-bbbef,
+		.rg-bbbeg { grid-template-columns: 50% 50% 1fr; }
 
 	}
 
@@ -63,7 +78,9 @@
 */ 
 	@media (min-width: 950px) {
 		.aa,.ac,.ba,.bc,.ca,.cc,.aba,.adb,.cba,.cbc,.abba,
-		.abbc,.bbac,.bbbb,.bbbc { visibility: unset; }
+		.abbc,.bbac,.bbbb,.bbbc, .lg-bbbb, .lg-bbbc, .rg-bbbee, .rg-bbbef { visibility: unset; }
+		.rg-bbbee,
+		.rg-bbbef { display: grid; }
 
 		.a { grid-template-columns: 5% 15% 1fr 19%; }
 		.b { grid-template-columns: 3.5% 1fr 3.5%; }
@@ -91,6 +108,8 @@
 		.lg-abd { grid-template-columns: 1fr 70%; }
 		.lg-abd { grid-template-columns: 1fr 70%; }
 		.rg-bbb { grid-template-rows: 7% repeat(3, 5%) 1fr; }
+		.lg-bbb { grid-template-columns: 1fr 1% 32%; }
+		.pr-bbb { grid-template-columns: 25% 1fr; }
 
 		.adaa,
 		.adab { grid-template-columns: 20% 1fr; }
@@ -101,6 +120,7 @@
 		.rg-bbbe { grid-template-rows: repeat(7, 1fr); }
 		.en-bbba { grid-template-rows: 11% 1fr 5%; }
 		.pr-bbbb { grid-template-rows: repeat(2, 6%) 15% 8%; }
+		.pr-bbba { grid-template-rows: 30% repeat(4, 0%); }
 
 		.bbbba { grid-template-rows: 1fr 25% 25% 30% }
 		.bbbbc { grid-template-rows: 35% 1fr 40%; }

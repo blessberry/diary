@@ -21,7 +21,7 @@
 	.bbbbabb:hover { background-image: linear-gradient(to bottom, #99a5c2, #c2c1be); border-radius: .5rem; }
 
 	.bbbaac:hover,.bbbabc:hover,.bbbacc:hover,
-	.bbbadc:hover { background-color: white; border-radius: .3rem; border: 1px solid #c2ccc2;}
+	.bbbadc:hover { background-image: linear-gradient(to bottom, #ebebea, #c2c1be); border-radius: .3rem; border: 1px solid #c2ccc2;}
 
 	.cbbb:hover,.cbbc:hover,.cbbd:hover,.cbbe:hover,.cbbf:hover,
 	li:hover { color: #ff8200; }

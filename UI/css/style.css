@@ -79,7 +79,7 @@
 		.pr-bbbbca { font-family: "Open Sans", sans-serif; }
 
         .adaab,.adabb,.abbb,
-    	.abbc { font-family: "Life Savers", cursive;  }
+    	.abbc, .en-bbbac>button { font-family: "Life Savers", cursive;  }
 		 
 	/* Font Size
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -93,7 +93,7 @@
 		.pr-bbbad,
 		.pr-bbbae,
 		.pr-bbbbb,
-		.pr-bbbbca { font-size: 1.1rem; }
+		.pr-bbbbca, .en-bbbac>button { font-size: 1.1rem; }
 
 		.bbbbaaa,.bbbbaab,.bbbbbaa,.bbbbbab,.lg-bbbbab,
 	    .bbbbcaa,.bbbbcab,.rg-bbba,.pr-bbbba {  font-size: 1.5rem; }
@@ -215,6 +215,7 @@
 		.pr-bbbae { border-top: 1px solid rgb(229, 229, 229); border-right: 1px solid rgb(229, 229, 229); border-left: 1px solid rgb(229, 229, 229); }
 		.pr-bbbae { border-bottom: 1px solid rgb(229, 229, 229); }
 		.en-bbbaa { border-bottom-left-radius: .5rem; border-bottom-right-radius: .5rem; }
+		.pr-bbbaa { border-radius: 6.5rem; }
 
 
 	/* Background-image
