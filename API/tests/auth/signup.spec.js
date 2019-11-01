@@ -1,12 +1,9 @@
 import chai from "chai";
-import chaiHttp from 'chai-http';
+import chaiHttp from "chai-http";
 import app from "../../../app.js";
 
 const { expect } = chai;
-
 chai.use(chaiHttp);
-
-let userToken;
 
 describe("POST /api/v1/auth/signup", () => {
   it("should return a 422 status if firstName is not provided", done => {
