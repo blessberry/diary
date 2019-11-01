@@ -11,12 +11,7 @@ export default {
   },
   auth: (req, res, next) => {
     !auth(req)
-      ? res
-          .status(401)
-          .json({
-            status: 401,
-            error: "Please Provide a valid authentication token"
-          })
+      ? message(res, 422, 'error', 'Please Provide a valid authentication token')
       : next();
   }
 };

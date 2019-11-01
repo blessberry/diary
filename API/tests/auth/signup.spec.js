@@ -1,7 +1,10 @@
 import chai from "chai";
+import chaiHttp from 'chai-http';
 import app from "../../../app.js";
 
 const { expect } = chai;
+
+chai.use(chaiHttp);
 
 let userToken;
 
@@ -212,12 +215,13 @@ describe("POST /api/v1/auth/signup", () => {
         if (error) done(error);
         expect(res).to.be.an("object");
         expect(res).to.have.status(201);
-        expect(res.body).to.have.keys("status", "message");
-        expect(res.body.status).to.deep.equal("error");
-        expect(res.body.message.firstName).to.deep.equals("user");
-        expect(res.body.message.lastName).to.deep.equals("one");
-        expect(res.body.message.email).to.deep.equals("user.one@localhost.com");
+        expect(res.body).to.have.keys("status", "data");
+        expect(res.body.status).to.deep.equal("success");
+        expect(res.body.data.firstName).to.deep.equals("user");
+        expect(res.body.data.lastName).to.deep.equals("one");
+        expect(res.body.data.email).to.deep.equals("user.one@localhost.com");
         done();
       });
   });
 });
+

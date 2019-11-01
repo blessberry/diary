@@ -11,7 +11,7 @@ export default {
 	409: 'Conflict',
 	500: 'Internal Server Error',
 	err: (err, req, res, next) => {
-		res.status(401).json({status: 401, error: 'Not valid request'})
+		res.status(422).json({status: 'error', error: 'Not valid request'})
 	},
 	error: (res, code, message) => res.status(statusCode).json({ status: 'error', message })
 }
