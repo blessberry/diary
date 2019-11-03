@@ -94,11 +94,7 @@
 	.rg-bbbee,
 	.rg-bbbef,
 	.rg-bbbeg { grid-template-columns: 40% 1fr 1fr; }
-	.pr-bbbaa,
-	.pr-bbbab,
-	.pr-bbbac,
-	.pr-bbbad,
-	.pr-bbbae { grid-template-columns: 85% 1fr; }
+	.pr-bbbaa { grid-template-columns: 100% 1fr; }
 	.lg-abcba { grid-template-columns: 1fr 1fr; }
  
 /* Sixth Level

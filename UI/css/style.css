@@ -79,7 +79,12 @@
 		.pr-bbbbca { font-family: "Open Sans", sans-serif; }
 
         .adaab,.adabb,.abbb,
-    	.abbc, .en-bbbac>button { font-family: "Life Savers", cursive;  }
+    	.abbc, .en-bbbac>button,
+    	.pr-bbbbcb,
+    	.pr-bbbbca,
+    	.pr-bbbba,
+    	.pr-bbbbb,
+    	.pr-bbbbd>button { font-family: "Life Savers", cursive;  }
 		 
 	/* Font Size
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -87,7 +92,7 @@
 		.lg-abdb { font-size: .9rem; }
 
 		.cbb,.bbbbaba>input,
-        .bbbbbb,.bbab,.adaab,.adabb,.pr-bbbaa,
+        .bbbbbb,.bbab,.adaab,.adabb,
 		.pr-bbbab, 
 		.pr-bbbac,
 		.pr-bbbad,
@@ -97,7 +102,7 @@
 
 		.bbbbaaa,.bbbbaab,.bbbbbaa,.bbbbbab,.lg-bbbbab,
 	    .bbbbcaa,.bbbbcab,.rg-bbba,.pr-bbbba {  font-size: 1.5rem; }
-	   
+	  	.pr-bbbaa { font-size: 10.4rem; }
     
 
 	/* Font Color
@@ -208,40 +213,31 @@
 		.lg-abbba>input { border: 1px solid rgb(201, 200, 199); box-shadow: rgba(0, 0, 0, 0.075) 0px 1px 1px 0px inset; }
 		.rg-bbbeg>button,
 		.pr-bbbbd>button { border: 1px solid rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25) rgba(0,0,0,0.25); }
-		.pr-bbbaa,
-		.pr-bbbab, 
-		.pr-bbbac,
-		.pr-bbbad,
-		.pr-bbbae { border-top: 1px solid rgb(229, 229, 229); border-right: 1px solid rgb(229, 229, 229); border-left: 1px solid rgb(229, 229, 229); }
-		.pr-bbbae { border-bottom: 1px solid rgb(229, 229, 229); }
 		.en-bbbaa { border-bottom-left-radius: .5rem; border-bottom-right-radius: .5rem; }
 		.pr-bbbaa { border-radius: 6.5rem; }
 
 
 	/* Background-image
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
-		body { background-image: url('../images/background.jpg'); }
-		/*.a { background-image: url('../images/backgroundTop.png'); } 
-		.c { background-image: url('../images/backgroundBottom.png'); }*/
+		body { background-image: url('../images/body.png'); }
+		.a { background-image: url('../images/backgroundTop.png');  } 
+		.c { background-image: url('../images/backgroundBottom.png'); }
 		.abaa { background-image: url('../images/logo.jpg'); }
-		/*.bba,
+		.bba,
         .baa,
         .bca { background-image: url('../images/header.png'); }
         .bbbc,
-        .lg-bbbc { background-image: url('../images/hrvr.png'); }*/
+        .lg-bbbc { background-image: url('../images/hrvr.png'); }
 		.bbaba,
     	.bbabb,
     	.bbabc,
         .bbbbabb { background-image: linear-gradient(to bottom, #ebebea, #c2c1be); }
-        /*.bbbbac,
-        .bbbbbc { background-image: url('../images/hrHz.png'); }*/
+        .bbbbac,
+        .bbbbbc { background-image: url('../images/hrHz.png'); }
         .pr-bbbbd>button { background-image: linear-gradient(rgb(235, 235, 234) rgb(194, 193, 190)) }
 
 	/* Background-size
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
-		body,
-		.a,
-		.c,
 		.abaa,
 		.bba,
         .bbbc,
@@ -259,7 +255,6 @@
 	    .lg-bbbc { margin-top: -1rem; }
 	    .rg-bbb { padding-top: 2rem; }
 	    .rg-bbbeg>button { background-color: rgb(194, 193, 190); }
-	    .pr-bbbaa,
 		.pr-bbbab, 
 		.pr-bbbac,
 		.pr-bbbad,
