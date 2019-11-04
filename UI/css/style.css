@@ -80,11 +80,11 @@
 		.bbbaab,
 		.bbbabb,
 		.bbbacb,
-		.bbbadb { font-family: "Open Sans", sans-serif; }
+		.bbbadb,
+    	.pr-bbbbcb { font-family: "Open Sans", sans-serif; }
 
         .adaab,.adabb,.abbb,
     	.abbc, .en-bbbac>button,
-    	.pr-bbbbcb,
     	.pr-bbbbca,
     	.pr-bbbba,
     	.pr-bbbbb,
@@ -146,8 +146,7 @@
 		.rg-bbbefb,
 		.pr-bbbba,
 		.pr-bbbbb,
-		.pr-bbbbca,
-		.pr-bbbbcb { color: rgb(51, 51, 51);}
+		.pr-bbbbca { color: rgb(51, 51, 51);}
 		.bbbaac,
 	    .bbbabc,
 	    .bbbacc,
@@ -160,7 +159,8 @@
 		.lg-bbbbbb,
 		.lg-bbbbcb,
 		.lg-bbbbdb,
-		.lg-bbbbeb { color: rgb(112, 112, 112); }
+		.lg-bbbbeb,
+		.pr-bbbbcb { color: rgb(112, 112, 112); }
 
 	/* Images
 	–––––––––––––––––––––––––––––––––––––––––––––– */
