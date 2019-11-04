@@ -84,7 +84,7 @@
     	.pr-bbbbcb { font-family: "Open Sans", sans-serif; }
 
         .adaab,.adabb,.abbb,
-    	.abbc, .en-bbbac>button,
+    	.abbc,
     	.pr-bbbbca,
     	.pr-bbbba,
     	.pr-bbbbb,
@@ -100,9 +100,9 @@
 		.pr-bbbab, 
 		.pr-bbbac,
 		.pr-bbbad,
-		.pr-bbbae,
+		.pr-bbbae, 
 		.pr-bbbbb,
-		.pr-bbbbca, .en-bbbac>button { font-size: 1.1rem; }
+		.pr-bbbbca { font-size: 1.1rem; }
 
 		.bbbbaaa,.bbbbaab,.bbbbbaa,.bbbbbab,.lg-bbbbab,
 	    .bbbbcaa,.bbbbcab,.rg-bbba,.pr-bbbba {  font-size: 1.5rem; }
@@ -263,7 +263,7 @@
 		.pr-bbbac,
 		.pr-bbbad,
 		.pr-bbbae,
-		.en-bbbaa { background-color: rgb(255, 255, 255); }
+		.en-bbbaa, .en-bbbac { background-color: rgb(255, 255, 255); }
 
 		
 /* Miscellaneous
