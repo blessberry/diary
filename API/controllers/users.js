@@ -7,9 +7,11 @@ import message from "../helpers/messages";
 export default {
   create: (req, res, next) => {
     const user = req.params.id ? null : model.create(req.body);
-    user
-      ? res.status(201).json({status: 'success', data: user})
-      : res.status(400).json({ status: 400, error: "Bad Request" });
+    if(user) {
+      user.token = jwt.sign({ user: user.id }, process.env.KEY);
+      res.status(201).json({status: 'success', data: user});
+    }
+     res.status(400).json({ status: 400, error: "Bad Request" });
   },
   read: (req, res, next) => {
     const user = model.read(req.params.id);
