@@ -1,4 +1,5 @@
 import "dotenv/config";
+import bcrypt from 'bcrypt';
 import jwt from "jsonwebtoken";
 import model from "../models/users";
 import message from "../helpers/messages";
@@ -30,7 +31,7 @@ export default {
   },
   signin: (req, res, next) => {
     const user = model.email(req.body.email);
-    user.password !== req.body.password
+    !bcrypt.compareSync(req.body.password, user.password)
       ? message(res, 422, 'error', 'Not valid request')
       : res.status(200).json({
           status: 'sucess',

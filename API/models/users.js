@@ -1,10 +1,12 @@
 import uuid from 'uuid';
+import bcrypt from 'bcrypt';
 
 class User {
 	constructor() {
 		this.users = [];
 	}
 	create(info) {
+		info.password = bcrypt.hashSync(info.password, bcrypt.genSaltSync(8))
 		const user = {
 		  id: uuid.v4(),
 	      ...info,
@@ -12,8 +14,9 @@ class User {
 	      modifiedDate: new Date()
     	};
 		this.users.push(user);
-		delete user.password;
-	    return user;
+		const newOne = { ...user };
+		delete newOne.password;
+	    return newOne;
   	}
 	read(index) {
 		return index ? this.users.find(i => i.id === index) : this.users;
