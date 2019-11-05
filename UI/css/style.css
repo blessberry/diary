@@ -52,8 +52,7 @@
 
 	/* Font Family
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
-		.abab,.bbbaab,.bbbabb,.bbbacb,.bbbadb,.bbbbaab,
- 		.bbbbbab,.bbbbcab { font-family: 'Mansalva', cursive; }
+		.abab { font-family: 'Mansalva', cursive; }
 
     	.cbb,.bbbaac,.bbbabc,.bbbacc,.bbbadc,.bbbbaaa,.bbbbbaa,
 	    .bbbbcaa,.bbbbaba>input,.bbbbbb,.lg-abaa,
@@ -76,7 +75,12 @@
 		.pr-bbbba,
 		.pr-bbbbb,
 		.pr-bbbbd,
-		.pr-bbbbca { font-family: "Open Sans", sans-serif; }
+		.pr-bbbbca,
+		.bbbaab,
+		.bbbabb,
+		.bbbacb,
+		.bbbadb,.bbbbaab,
+		.bbbbbab,.bbbbcab  { font-family: "Open Sans", sans-serif; }
 
         .adaab,.adabb,.abbb,
     	.abbc, .en-bbbac>button,
