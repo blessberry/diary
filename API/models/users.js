@@ -11,7 +11,8 @@ class User {
 	      createdDate: new Date(),
 	      modifiedDate: new Date()
     	};
-    	this.users.push(user);
+		this.users.push(user);
+		delete user.password;
 	    return user;
   	}
 	read(index) {
