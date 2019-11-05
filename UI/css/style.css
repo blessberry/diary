@@ -52,7 +52,7 @@
 
 	/* Font Family
 	–––––––––––––––––––––––––––––––––––––––––––––––––– */
-		.abab,.bbbaab,.bbbabb,.bbbacb,.bbbadb,.bbbbaab,
+		.abab,.bbbbaab,
  		.bbbbbab,.bbbbcab { font-family: 'Mansalva', cursive; }
 
     	.cbb,.bbbaac,.bbbabc,.bbbacc,.bbbadc,.bbbbaaa,.bbbbbaa,
@@ -76,11 +76,15 @@
 		.pr-bbbba,
 		.pr-bbbbb,
 		.pr-bbbbd,
-		.pr-bbbbca { font-family: "Open Sans", sans-serif; }
+		.pr-bbbbca,
+		.bbbaab,
+		.bbbabb,
+		.bbbacb,
+		.bbbadb,
+    	.pr-bbbbcb { font-family: "Open Sans", sans-serif; }
 
         .adaab,.adabb,.abbb,
-    	.abbc, .en-bbbac>button,
-    	.pr-bbbbcb,
+    	.abbc,
     	.pr-bbbbca,
     	.pr-bbbba,
     	.pr-bbbbb,
@@ -96,9 +100,9 @@
 		.pr-bbbab, 
 		.pr-bbbac,
 		.pr-bbbad,
-		.pr-bbbae,
+		.pr-bbbae, 
 		.pr-bbbbb,
-		.pr-bbbbca, .en-bbbac>button { font-size: 1.1rem; }
+		.pr-bbbbca { font-size: 1.1rem; }
 
 		.bbbbaaa,.bbbbaab,.bbbbbaa,.bbbbbab,.lg-bbbbab,
 	    .bbbbcaa,.bbbbcab,.rg-bbba,.pr-bbbba {  font-size: 1.5rem; }
@@ -142,8 +146,7 @@
 		.rg-bbbefb,
 		.pr-bbbba,
 		.pr-bbbbb,
-		.pr-bbbbca,
-		.pr-bbbbcb { color: rgb(51, 51, 51);}
+		.pr-bbbbca { color: rgb(51, 51, 51);}
 		.bbbaac,
 	    .bbbabc,
 	    .bbbacc,
@@ -156,7 +159,8 @@
 		.lg-bbbbbb,
 		.lg-bbbbcb,
 		.lg-bbbbdb,
-		.lg-bbbbeb { color: rgb(112, 112, 112); }
+		.lg-bbbbeb,
+		.pr-bbbbcb { color: rgb(112, 112, 112); }
 
 	/* Images
 	–––––––––––––––––––––––––––––––––––––––––––––– */
@@ -259,7 +263,7 @@
 		.pr-bbbac,
 		.pr-bbbad,
 		.pr-bbbae,
-		.en-bbbaa { background-color: rgb(255, 255, 255); }
+		.en-bbbaa, .en-bbbac { background-color: rgb(255, 255, 255); }
 
 		
 /* Miscellaneous
