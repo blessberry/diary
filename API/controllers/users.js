@@ -1,4 +1,5 @@
 import "dotenv/config";
+import bcrypt from 'bcrypt';
 import jwt from "jsonwebtoken";
 import model from "../models/users";
 import message from "../helpers/messages";
@@ -6,9 +7,11 @@ import message from "../helpers/messages";
 export default {
   create: (req, res, next) => {
     const user = req.params.id ? null : model.create(req.body);
-    user
-      ? res.status(201).json({status: 'success', data: user})
-      : res.status(400).json({ status: 400, error: "Bad Request" });
+    if(user) {
+      user.token = jwt.sign({ user: user.id }, process.env.KEY);
+      res.status(201).json({status: 'success', data: user});
+    }
+     res.status(400).json({ status: 400, error: "Bad Request" });
   },
   read: (req, res, next) => {
     const user = model.read(req.params.id);
@@ -30,7 +33,7 @@ export default {
   },
   signin: (req, res, next) => {
     const user = model.email(req.body.email);
-    user.password !== req.body.password
+    !bcrypt.compareSync(req.body.password, user.password)
       ? message(res, 422, 'error', 'Not valid request')
       : res.status(200).json({
           status: 'sucess',
