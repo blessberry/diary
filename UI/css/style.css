@@ -179,7 +179,8 @@
 	    .bbbacb,
 	    .bbbadb,
 	    .rg-bbba,
-	    .pr-bbbba { font-weight: 700; }
+		.pr-bbbba,
+		.en-bbbab { font-weight: 700; }
 	 	.bbbaac,
 	    .bbbabc,
 	    .bbbacc,
@@ -258,7 +259,7 @@
 	    .lg-bbbc { margin-bottom: 7.5rem; }
 	    .lg-bbbc { margin-top: -1rem; }
 	    .rg-bbb { padding-top: 2rem; }
-	    .rg-bbbeg>button { background-color: rgb(194, 193, 190); }
+	    .rg-bbbeg>button,.en-bbbab { background-color: rgb(194, 193, 190); }
 		.pr-bbbab, 
 		.pr-bbbac,
 		.pr-bbbad,
