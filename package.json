@@ -7,7 +7,8 @@
     "test": "nyc --reporter=html --reporter=text mocha API/tests/ --require esm --recursive --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "nodemon": "nodemon -r esm app.js",
-    "start": "node -r esm app.js"
+    "start": "node -r esm app.js",
+    "lint" : "npm i eslint --save-dev"
   },
   "keywords": [],
   "author": "",
