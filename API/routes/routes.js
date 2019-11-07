@@ -1,18 +1,13 @@
-import express from "express";
-import entries from "./entries";
-import users from "./users";
-import message from "../helpers/messages";
+import express from 'express';
+import users from './users';
+import entries from './entries';
 
 const router = express.Router();
 
-router.get("/", (req, res, next) =>
-  message(res, 200, "message", "Hello World")
-);
-router.use("/api/v1/auth", users);
-router.use("/api/v1/entries", entries);
+router.get('/', (req, res) => res.status(200).json({ status: 'success', data: 'Welcome to my diary...' }));
+router.use('/api/v2/auth', users);
+router.use('/api/v2', entries);
 
-router.use("/*", (req, res, next) =>
-  message(res, 404, "error", "Wrong api endpoint, does not exist")
-);
+router.use('/*', (req, res) => res.status(404).json({ status: 'error', data: 'Wrong api endpoint, does not exist' }));
 
 export default router;
