@@ -1,15 +1,19 @@
 import express from 'express';
+import auth from '../middlewares/auth';
 import middlewares from '../middlewares/middlewares';
-import controller from '../controllers/entries';
+import controllers from '../controllers/entries';
 
 const router = express.Router();
 
-router.route('/(:id)?')
-	  .all(middlewares.auth)
-	  .post(controller.create)
-	  .get(controller.read)
-	  .patch(controller.update)
-	  .delete(controller.delete)
+router.route('/entries')
+  .all(auth)
+  .post(middlewares.post, controllers.post)
+  .get(controllers.get);
 
+router.route('/entries/:id')
+  .all(middlewares.params, auth)
+  .patch(middlewares.patch, controllers.patch)
+  .delete(controllers.delete)
+  .get(controllers.pick);
 
 export default router;

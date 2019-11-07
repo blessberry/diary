@@ -1,20 +1,15 @@
 import express from 'express';
 import middlewares from '../middlewares/middlewares';
-import controller from '../controllers/users';
+import controllers from '../controllers/users';
 
 const router = express.Router();
 
 router.route('/signup')
-	  .all(middlewares.signup)
-	  .post(controller.create)
+  .all(middlewares.signup)
+  .post(controllers.signup);
 
 router.route('/signin')
-	  .post(controller.signin)
-
-router.route('/users(/:id)?')
-	  //.all(middlewares.auth)
-	  .get(controller.read)
-	  .patch(controller.update)
-	  .delete(controller.delete)
+  .all(middlewares.signin)
+  .post(controllers.signin);
 
 export default router;

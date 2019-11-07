@@ -1,0 +1,5 @@
+feature(view entry): add view entry
+
+-update style.css
+
+[finishes #169547034]

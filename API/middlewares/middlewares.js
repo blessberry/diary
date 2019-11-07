@@ -1,17 +1,39 @@
-import "dotenv/config";
-import joi from "./helpers/joi";
-import auth from "./helpers/auth";
-import message from "../helpers/messages";
+import joi from '../helpers/joi';
 
 export default {
   signup: (req, res, next) => {
-    joi(req.body).error
-      ? message(res, 422, "error", joi(req.body).error.details[0].message)
-      : next();
+    const { error } = joi.signup(req);
+    return error ? res.status(400).json({
+      status: res.statusCode,
+      error: error.details[0].message,
+    }) : next();
   },
-  auth: (req, res, next) => {
-    !auth(req)
-      ? message(res, 422, 'error', 'Please Provide a valid authentication token')
-      : next();
-  }
+  signin: (req, res, next) => {
+    const { error } = joi.signin(req);
+    return error ? res.status(400).json({
+      status: res.statusCode,
+      error: error.details[0].message,
+    }) : next();
+  },
+  post: (req, res, next) => {
+    const { error } = joi.post(req);
+    return error ? res.status(400).json({
+      status: res.statusCode,
+      error: error.details[0].message,
+    }) : next();
+  },
+  patch: (req, res, next) => {
+    const { error } = joi.patch(req);
+    return error ? res.status(400).json({
+      status: res.statusCode,
+      error: error.details[0].message,
+    }) : next();
+  },
+  params: (req, res, next) => {
+    const { error } = joi.params(req);
+    return error ? res.status(400).json({
+      status: res.statusCode,
+      error: error.details[0].message,
+    }) : next();
+  },
 };

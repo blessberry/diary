@@ -1,44 +1,46 @@
-import "dotenv/config";
-import jwt from "jsonwebtoken";
-import model from "../models/users";
-import message from "../helpers/messages";
+import _ from 'lodash';
+import bcrypt from 'bcrypt';
+import jwt from '../helpers/jwt';
+import db from '../models/helpers/queries';
+import pool from '../helpers/pg';
 
 export default {
-  create: (req, res, next) => {
-    const user = req.params.id ? null : model.create(req.body);
-    user
-      ? res.status(201).json({status: 'success', data: user})
-      : res.status(400).json({ status: 400, error: "Bad Request" });
+  signup: async (req, res, next) => {
+    try {
+      const { firstName, lastName, email } = req.body;
+      const rows = await pool.query(db.get(email));
+
+      if (rows.rowCount > 0) res.status(409).json({ message: 'Email address already taken' });
+
+      req.body.password = bcrypt.hashSync(req.body.password, 10);
+      const user = await pool.query(db.create(firstName, lastName, email, req.body.password));
+
+      const data = {
+        token: jwt(user.rows[0].id, user.rows[0].email),
+        info: _.pick(user.rows[0], 'firstname', 'lastname', 'email'),
+      };
+      res.status(201).json({ status: 201, message: 'User created successfull', data });
+    } catch (error) {
+      res.status(500).json({ message: error });
+      next(error);
+    }
   },
-  read: (req, res, next) => {
-    const user = model.read(req.params.id);
-    user
-      ? res.status(200).json({ status: 200, message: "OK", data: user })
-      : res.status(404).json({ status: 404, error: "Not Found" });
+  signin: async (req, res, next) => {
+    try {
+      const user = await pool.query(db.get(req.body.email));
+
+      if (user.rows.length < 1) res.status(404).send({ status: 404, message: 'No associated account with this email' });
+
+      if (!bcrypt.compareSync(req.body.password, user.rows[0].password)) res.status(404).json({ status: 404, message: 'Incorrect password!' });
+
+      const data = {
+        token: jwt(user.rows[0].id, user.rows[0].email),
+        info: _.pick(user.rows[0], 'firstname', 'lastname', 'email'),
+      };
+      res.status(200).json({ status: 200, message: 'loggin successfull', data });
+    } catch (error) {
+      res.status(500).json({ message: error });
+      next(error);
+    }
   },
-  update: (req, res, next) => {
-    const user = model.update(req.body, req.params.id);
-    user
-      ? res.status(200).json({ status: 200, message: "OK", data: user })
-      : res.status(404).json({ status: 404, error: "Not Found" });
-  },
-  delete: (req, res, next) => {
-    const user = model.delete(req.params.id);
-    user
-      ? res.status(200).json({ status: 200, message: "OK", data: user })
-      : res.status(404).json({ status: 404, error: "Not Found" });
-  },
-  signin: (req, res, next) => {
-    const user = model.email(req.body.email);
-    user.password !== req.body.password
-      ? message(res, 422, 'error', 'Not valid request')
-      : res.status(200).json({
-          status: 'sucess',
-          data: { token: jwt.sign({ user: user.id }, process.env.KEY) }
-        });
-  },
-  user: jwt => {
-    const user = model.user(jwt.user);
-    return user ? user : false;
-  }
 };
