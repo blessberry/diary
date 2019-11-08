@@ -17,7 +17,7 @@ export default {
 
       const data = {
         token: jwt(user.rows[0].id, user.rows[0].email),
-        info: _.pick(user.rows[0], 'firstname', 'lastname', 'email'),
+        info: _.pick(user.rows[0], 'firstName', 'lastName', 'email'),
       };
       res.status(201).json({ status: 201, message: 'User created successfull', data });
     } catch (error) {

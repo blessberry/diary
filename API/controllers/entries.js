@@ -16,7 +16,7 @@ export default {
       next(error);
     }
   },
-  get: async (req, res) => {
+  get: async (req, res, next) => {
     try {
       const { Email: email } = req.user;
       const entries = await pool.query(db.read(email));
@@ -33,7 +33,7 @@ export default {
     }
 
   },
-  pick: async (req, res) => {
+  pick: async (req, res, next) => {
     try {
       const { Email: email } = req.user;
       const { id } = req.params;
@@ -47,7 +47,7 @@ export default {
       next(error);
     }
   },
-  patch: async (req, res) => {
+  patch: async (req, res, next) => {
     try {
       const { Email: email } = req.user;
       const { id } = req.params;
@@ -84,7 +84,7 @@ export default {
 
     res.status(200).json({ message: 'entry successful updated', data: update.rows[0] });
   },
-  delete: async (req, res) => {
+  delete: async (req, res, next) => {
     try {
       const { Email: email } = req.user;
       const { id } = req.params;
