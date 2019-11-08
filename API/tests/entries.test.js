@@ -1,13 +1,16 @@
-import 'dotenv/config';
+import dotenv from 'dotenv';
 import chai from 'chai';
 import chaiHttp from 'chai-http';
+
 import app from '../../app';
 import usersTest from './db/users';
 import entriesTest from './db/entries';
 import generateToken from '../helpers/jwt';
 
+
 const { expect } = chai;
 chai.use(chaiHttp);
+dotenv.config();
 
 const token = generateToken(usersTest[5].id, usersTest[5].email);
 const unthToken = generateToken(usersTest[12].id, usersTest[12].email);
@@ -20,7 +23,7 @@ describe('When users tries to view all their diaries--- GET entry,api/v2/entries
       .get('/api/v2/entries')
       .end((err, res) => {
         expect(res.status).to.equal(401);
-        expect(res.body.data).to.equal('Unauthorised - Header Not Set');
+        expect(res.body.err).to.equal('Unauthorised - Header Not Set');
         done();
       });
   });
@@ -32,7 +35,7 @@ describe('When users tries to view all their diaries--- GET entry,api/v2/entries
       .end((err, res) => {
         expect(res.body).to.be.an('object');
         expect(res.status).to.equal(401);
-        expect(res.body.data).to.equal('Unauthorised Token or token not provided');
+        expect(res.body.error).to.equal('Unauthorised Token or token not provided');
         done();
       });
   });
@@ -50,7 +53,7 @@ describe('When the user try to create a new entry--- POST entry,api/v2/entries',
       .end((err, res) => {
         expect(res.body).to.be.an('object');
         expect(res.status).to.equal(400);
-        expect(res.body.status).to.equal('error');
+        expect(res.body.status).to.equal(400);
         expect(res.body.error).to.equal('"title" is not allowed to be empty');
         done();
       });
@@ -65,7 +68,7 @@ describe('When the user try to create a new entry--- POST entry,api/v2/entries',
       .end((err, res) => {
         expect(res.body).to.be.an('object');
         expect(res.status).to.equal(400);
-        expect(res.body.status).to.equal('error');
+        expect(res.body.status).to.equal(400);
         expect(res.body.error).to.equal('"description" is not allowed to be empty');
         done();
       });
@@ -80,7 +83,7 @@ describe('When the user try to create a new entry--- POST entry,api/v2/entries',
       .end((err, res) => {
         expect(res.body).to.be.an('object');
         expect(res.status).to.equal(201);
-        expect(res.body.status).to.equal('success');
+        expect(res.body.status).to.equal(201);
         expect(res.body.message).to.equal('entry successfully created');
         done();
       });
@@ -96,8 +99,31 @@ describe('When users tries to view all their diaries--- GET entry,api/v2/entries
       .set('Authorization', token)
       .end((err, res) => {
         expect(res.status).to.equal(200);
-        expect(res.body.status).to.equal('success');
-        expect(res.body.message).to.be.an('array');
+        expect(res.body.status).to.equal(200);
+        expect(res.body.message).to.equal('display all entries');
+        done();
+      });
+  });
+  it('should return the page you request does not exist', (done) => {
+    chai
+      .request(app)
+      .get('/api/v2/entries?p=15')
+      .set('Authorization', token)
+      .end((err, res) => {
+        expect(res.status).to.equal(404);
+        expect(res.body.message).to.equal('the page you request does not exist');
+        done();
+      });
+  });
+  it('should return displayed entries by pagination', (done) => {
+    chai
+      .request(app)
+      .get('/api/v2/entries?p=1')
+      .set('Authorization', token)
+      .end((err, res) => {
+        expect(res.status).to.equal(200);
+        expect(res.body.status).to.equal(200);
+        expect(res.body.message).to.equal('display all entries');
         done();
       });
   });
@@ -113,7 +139,7 @@ describe('When the user tries to view a specific entry--- GET entry,api/v2/entri
       .end((err, res) => {
         expect(res.body).to.be.an('object');
         expect(res.status).to.equal(400);
-        expect(res.body.status).to.equal('error');
+        expect(res.body.status).to.equal(400);
         done();
       });
   });
@@ -125,7 +151,7 @@ describe('When the user tries to view a specific entry--- GET entry,api/v2/entri
       .end((err, res) => {
         expect(res.body).to.be.an('object');
         expect(res.status).to.equal(404);
-        expect(res.body.status).to.equal('error');
+        expect(res.body.status).to.equal(404);
         expect(res.body.message).to.equal('No entry to display');
         done();
       });
@@ -137,8 +163,8 @@ describe('When the user tries to view a specific entry--- GET entry,api/v2/entri
       .set('Authorization', token)
       .end((err, res) => {
         expect(res.body).to.be.an('object');
-        expect(res.status).to.equal(404);
-        expect(res.body.status).to.equal('error');
+        expect(res.status).to.equal(200);
+        expect(res.body.status).to.equal(200);
         done();
       });
   });
@@ -155,7 +181,7 @@ describe('When the user tries to UPDATE a specific diary--- PATCH entry,api/v2/e
       .end((err, res) => {
         expect(res.body).to.be.an('object');
         expect(res.status).to.equal(400);
-        expect(res.body.status).to.equal('error');
+        expect(res.body.status).to.equal(400);
         expect(res.body.error).to.equal('"id" must be a number');
         done();
       });
@@ -170,7 +196,7 @@ describe('When the user tries to UPDATE a specific diary--- PATCH entry,api/v2/e
       .end((err, res) => {
         expect(res.body).to.be.an('object');
         expect(res.status).to.equal(400);
-        expect(res.body.status).to.equal('error');
+        expect(res.body.status).to.equal(400);
         expect(res.body.error).to.equal('"title" must be a string');
         done();
       });
@@ -185,7 +211,7 @@ describe('When the user tries to UPDATE a specific diary--- PATCH entry,api/v2/e
       .end((err, res) => {
         expect(res.body).to.be.an('object');
         expect(res.status).to.equal(400);
-        expect(res.body.status).to.equal('error');
+        expect(res.body.status).to.equal(400);
         expect(res.body.error).to.equal('"description" must be a string');
         done();
       });
@@ -200,7 +226,7 @@ describe('When the user tries to UPDATE a specific diary--- PATCH entry,api/v2/e
       .end((err, res) => {
         expect(res.body).to.be.an('object');
         expect(res.status).to.equal(404);
-        expect(res.body.status).to.equal('error');
+        expect(res.body.status).to.equal(404);
         done();
       });
   });
@@ -214,8 +240,8 @@ describe('When the user tries to UPDATE a specific diary--- PATCH entry,api/v2/e
       .end((err, res) => {
         expect(res.body).to.be.an('object');
         expect(res.status).to.equal(401);
-        expect(res.body.status).to.equal('error');
-        expect(res.body.data).to.equal('You are not authorized to perform this action');
+        expect(res.body.status).to.equal(401);
+        expect(res.body.error).to.equal('You are not authorized to perform this action');
         done();
       });
   });
@@ -227,8 +253,8 @@ describe('When the user tries to UPDATE a specific diary--- PATCH entry,api/v2/e
       .set('Authorization', token)
       .end((err, res) => {
         expect(res.body).to.be.an('object');
-        expect(res.status).to.equal(400);
-        expect(res.body.message).to.equal('please update either title or description!');
+        expect(res.status).to.equal(404);
+        expect(res.body.message).to.equal('entry not found');
         done();
       });
   });
@@ -240,8 +266,8 @@ describe('When the user tries to UPDATE a specific diary--- PATCH entry,api/v2/e
       .set('Authorization', token)
       .end((err, res) => {
         expect(res.body).to.be.an('object');
-        expect(res.status).to.equal(404);
-        expect(res.body.message).to.equal('entry not found');
+        expect(res.status).to.equal(400);
+        expect(res.body.message).to.equal('please update either title or description!');
         done();
       });
   });
@@ -254,8 +280,8 @@ describe('When the user tries to UPDATE a specific diary--- PATCH entry,api/v2/e
       .send(entriesTest[6])
       .end((err, res) => {
         expect(res.body).to.be.an('object');
-        expect(res.status).to.equal(404);
-        expect(res.body.message).to.equal('entry not found');
+        expect(res.status).to.equal(200);
+        expect(res.body.message).to.equal('entry successful updated');
         done();
       });
   });
@@ -268,8 +294,8 @@ describe('When the user tries to UPDATE a specific diary--- PATCH entry,api/v2/e
       .send(entriesTest[7])
       .end((err, res) => {
         expect(res.body).to.be.an('object');
-        expect(res.status).to.equal(404);
-        expect(res.body.message).to.equal('entry not found');
+        expect(res.status).to.equal(200);
+        expect(res.body.message).to.equal('entry successful updated');
         done();
       });
   });
@@ -282,8 +308,8 @@ describe('When the user tries to UPDATE a specific diary--- PATCH entry,api/v2/e
       .send(entriesTest[5])
       .end((err, res) => {
         expect(res.body).to.be.an('object');
-        expect(res.status).to.equal(404);
-        expect(res.body.message).to.equal('entry not found');
+        expect(res.status).to.equal(200);
+        expect(res.body.message).to.equal('entry successful updated');
         done();
       });
   });
@@ -313,9 +339,9 @@ describe('delete entry, --api/v2/entries/id', () => {
       .set('Authorization', token)
       .end((err, res) => {
         expect(res.body).to.be.an('object');
-        expect(res.status).to.equal(404);
-        expect(res.body.status).to.equal(404);
-        expect(res.body.message).to.equal('entry not found');
+        expect(res.status).to.equal(200);
+        expect(res.body.status).to.equal(200);
+        expect(res.body.message).to.equal('​entry successfully deleted');
         done();
       });
   });

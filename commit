@@ -1,5 +1,5 @@
-feature(view entry): add view entry
+chore(implement tests): add tests
 
--update style.css
+-create folder tests
 
-[finishes #169547034]
+[finishes #169632824]
