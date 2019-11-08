@@ -17,26 +17,57 @@ export default {
     }
   },
   get: async (req, res) => {
-    const { Email: email } = req.user;
-    const entries = await pool.query(db.read(email));
+    try {
+      const { Email: email } = req.user;
+      const entries = await pool.query(db.read(email));
+  
+      if (entries.rowCount < 0) { res.status(404).send({ status: 'error', message: 'you have no entries!' }); }
+  
+      res.status(200).send({
+        status: 'success',
+        message: entries.rows,
+      });
+    } catch (error) {
+      res.status(500).json({ message: error });
+      next(error);
+    }
 
-    if (entries.rowCount < 0) { res.status(404).send({ status: 'error', message: 'you have no entries!' }); }
-
-    res.status(200).send({
-      status: 'success',
-      message: entries.rows,
-    });
   },
   pick: async (req, res) => {
-    const { Email: email } = req.user;
-    const { id } = req.params;
-    const entry = await pool.query(db.pick(email, id));
-
-    if (entry.rowCount > 0) { res.status(200).json({ status: 'success', data: entry.rows[0] }); }
-
-    res.status(404).json({ status: 'error', message: 'No entry to display' });
+    try {
+      const { Email: email } = req.user;
+      const { id } = req.params;
+      const entry = await pool.query(db.pick(email, id));
+  
+      if (entry.rowCount > 0) res.status(200).json({ status: 'success', data: entry.rows[0] });
+  
+      res.status(404).json({ status: 'error', message: 'No entry to display' });
+    } catch (error) {
+      res.status(500).json({ message: error });
+      next(error);
+    }
   },
   patch: async (req, res) => {
+    try {
+      const { Email: email } = req.user;
+      const { id } = req.params;
+      const entry = await pool.query(db.pick(email, id));
+  
+      if (entry.rowCount === 0) res.status(404).json({ status: 'error', message: 'entry not found' });
+  
+      if (!req.body.title && !req.body.description) res.status(400).json({ status: 'error', message: 'please update either title or description!' });
+  
+      if (!req.body.title) req.body.title = entry.rows[0].title;
+  
+      if (!req.body.description) req.body.title = entry.rows[0].description;
+  
+      const update = await pool.query(db.update(req.body.title, req.body.description, email, id));
+  
+      res.status(200).json({ message: 'entry successful updated', data: update.rows[0] });
+    } catch (error) {
+      res.status(500).json({ message: error });
+      next(error);
+    }
     const { Email: email } = req.user;
     const { id } = req.params;
     const entry = await pool.query(db.pick(email, id));
@@ -45,7 +76,7 @@ export default {
 
     if (!req.body.title && !req.body.description) res.status(400).json({ status: 'error', message: 'please update either title or description!' });
 
-    if (!req.body.title) { req.body.title = entry.rows[0].title; }
+    if (!req.body.title) req.body.title = entry.rows[0].title;
 
     if (!req.body.description) req.body.title = entry.rows[0].description;
 
@@ -54,13 +85,17 @@ export default {
     res.status(200).json({ message: 'entry successful updated', data: update.rows[0] });
   },
   delete: async (req, res) => {
-    const { Email: email } = req.user;
-    const { id } = req.params;
-    const entry = await pool.query(db.delete(email, id));
+    try {
+      const { Email: email } = req.user;
+      const { id } = req.params;
+      const entry = await pool.query(db.delete(email, id));
 
+      if (entry.rowCount > 0) { res.status(200).json({ status: 200, message: '​entry successfully deleted' }); }
 
-    if (entry.rowCount > 0) { res.status(200).json({ status: 200, message: '​entry successfully deleted' }); }
-
-    res.status(404).json({ status: 404, message: 'entry not found' });
-  },
-};
+      res.status(404).json({ status: 404, message: 'entry not found' });
+    } catch (error) {
+      res.status(500).json({ message: error });
+      next(error);
+    }
+  }
+}
