@@ -10,14 +10,14 @@ export default {
       const { firstName, lastName, email } = req.body;
       const rows = await pool.query(db.get(email));
 
-      if (rows.rowCount > 0) return res.status(409).json({ message: 'Email already taken' });
+      if (rows.rowCount > 0) return res.status(409).json({status: 'error', data: 'Email already taken' });
       req.body.password = bcrypt.hashSync(req.body.password, 10);
       const user = await pool.query(db.create(firstName, lastName, email, req.body.password));
       const data = {
         token: jwt(user.rows[0].id, user.rows[0].email),
-        info: _.pick(user.rows[0], 'firstName', 'lastName', 'email'),
+        info: _.pick(user.rows[0], 'firstname', 'lastname', 'email'),
       };
-      return res.status(201).json({ status: 201, message: 'USER CREATED', data });
+      return res.status(201).json({ status: 'success', data });
     } catch (error) {
       res.status(500).json({ message: error });
       next(error);
@@ -29,11 +29,11 @@ export default {
 
       if (user.rows.length < 1) return res.status(404).send({ status: 404, message: 'USER DO NOT EXIST' });
 
-      if (!bcrypt.compareSync(req.body.password, user.rows[0].password)) return res.status(404).json({ status: 404, message: 'INCORRECT PASSWORD' });
+      if (!bcrypt.compareSync(req.body.password, user.rows[0].password))
+        return res.status(422).json({ status: 'error', data: 'INCORRECT PASSWORD' });
 
       const data = {
-        token: jwt(user.rows[0].id, user.rows[0].email),
-        info: _.pick(user.rows[0], 'firstname', 'lastname', 'email'),
+        token: jwt(user.rows[0].id, user.rows[0].email)
       };
       return res.status(200).json({ status: 'success', data });
     } catch (error) {
