@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "table": "node -r esm ./API/models/db.js",
-    "test": "nyc --reporter=html --reporter=text mocha API/tests/auth/ --require esm --recursive --exit",
+    "test": "nyc --reporter=html --reporter=text mocha API/tests/ --require esm --recursive --exit",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "nodemon": "nodemon -r esm app.js",
     "start": "npm run table && node -r esm app.js",
