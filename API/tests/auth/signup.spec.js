@@ -205,16 +205,15 @@ describe("POST /api/v2/auth/signup", () => {
       .send({
         firstName: "user",
         lastName: "one",
-        email: "random.aadjdjds@localhost.com",
+        email: "user.two@localhost.com",
         password: "password123"
       })
       .end((error, res) => {
         if (error) done(error);
         expect(res).to.be.an("object");
-        expect(res).to.have.status(409);
+        expect(res).to.have.status(201);
         expect(res.body).to.have.keys("status", "data");
-        expect(res.body.status).to.deep.equal("error");
-        expect(res.body.data).to.deep.equals("Email already taken");
+        expect(res.body.status).to.deep.equal("success");
         done();
       });
   });
