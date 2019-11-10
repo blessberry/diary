@@ -3,7 +3,7 @@ import express from 'express';
 import routes from './API/routes/routes';
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 2000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

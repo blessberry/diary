@@ -1,13 +1,12 @@
 import pool from '../helpers/pg';
 
-const tables = `
-DROP TABLE IF EXISTS users, entries;
-CREATE TABLE IF NOT EXISTS users(
-  id SERIAL PRIMARY KEY,
-  firstName VARCHAR (255) NOT NULL,
-  lastName VARCHAR (255) NOT NULL,
-  email VARCHAR (100) NOT NULL,
-  password VARCHAR (255) NOT NULL
+const tables = ` DROP TABLE IF EXISTS users, entries;
+                  CREATE TABLE IF NOT EXISTS users(
+                    id SERIAL PRIMARY KEY,
+                      firstName VARCHAR (255) NOT NULL,
+                        lastName VARCHAR (255) NOT NULL,
+                          email VARCHAR (100) NOT NULL,
+                    password VARCHAR (255) NOT NULL
   );
 CREATE TABLE IF NOT EXISTS entries (
   id SERIAL PRIMARY KEY,
