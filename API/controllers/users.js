@@ -27,7 +27,7 @@ export default {
     try {
       const user = await pool.query(db.get(req.body.email));
 
-      if (user.rows.length < 1) return res.status(404).send({ status: 404, message: 'USER DO NOT EXIST' });
+      if (user.rows.length < 1) return res.status(422).send({ status: 'error', data: 'USER DO NOT EXIST' });
 
       if (!bcrypt.compareSync(req.body.password, user.rows[0].password))
         return res.status(422).json({ status: 'error', data: 'INCORRECT PASSWORD' });
