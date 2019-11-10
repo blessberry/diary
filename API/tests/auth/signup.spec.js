@@ -205,7 +205,7 @@ describe("POST /api/v2/auth/signup", () => {
       .send({
         firstName: "user",
         lastName: "one",
-        email: "user.one@localhost.com",
+        email: "user.two@localhost.com",
         password: "password123"
       })
       .end((error, res) => {

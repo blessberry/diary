@@ -8,7 +8,6 @@ services:
   - postgresql
 before_script:
   - psql -c 'create database diary;' -U postgres
-  - npm run table
 script:
   - npm run test 
 after_script:
