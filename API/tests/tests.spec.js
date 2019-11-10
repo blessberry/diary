@@ -1,9 +1,11 @@
 import chai from "chai";
 import chaiHttp from "chai-http";
-import app from "../../../app";
+import app from "../../app";
 
 const { expect } = chai;
 chai.use(chaiHttp);
+
+let token, param;
 
 describe("POST /api/v2/auth/signup", () => {
   it("should return a 422 status if firstName is not provided", done => {
@@ -214,6 +216,7 @@ describe("POST /api/v2/auth/signup", () => {
         expect(res).to.have.status(201);
         expect(res.body).to.have.keys("status", "data");
         expect(res.body.status).to.deep.equal("success");
+        token = res.body.data.token;
         done();
       });
   });
@@ -306,4 +309,265 @@ describe("POST /api/v2/auth/signin", () => {
         done();
       });
   });
+});
+describe('POST /api/v2/entries', () => {
+  it("should return a 422 status if title is not provided", done => {
+      chai
+        .request(app)
+        .post("/api/v2/entries")
+        .set('Authorization', token)   
+        .send({
+          description: 'description one',
+        })
+        .end((error, res) => {
+          if (error) done(error);
+          expect(res).to.be.an("object");
+          expect(res).to.have.status(422);
+          expect(res.body).to.have.keys("status", "data");
+          expect(res.body.status).to.deep.equal("error");
+          expect(res.body.data).to.deep.equals('"title" is required');
+          done();
+        });
+    });
+  
+    it("should return a 422 status if title has more than 20 characters", done => {
+      chai
+        .request(app)
+        .post("/api/v2/entries")
+        .set('Authorization', token)
+        .send({
+          title: "somereallylongnamethatimadeupitistrulylongadfdfdfdfdsfd",
+          description: 'description one',
+        })
+        .end((error, res) => {
+          if (error) done(error);
+          expect(res).to.be.an("object");
+          expect(res).to.have.status(422);
+          expect(res.body).to.have.keys("status", "data");
+          expect(res.body.status).to.deep.equal("error");
+          expect(res.body.data).to.deep.equals(
+            '"title" length must be less than or equal to 20 characters long'
+          );
+          done();
+        });
+    });
+  
+    it("should return a 401 status if Authorization is not provided", done => {
+      chai
+        .request(app)
+        .post("/api/v2/entries")
+        .send({
+          title: "title one",
+          description: 'description one'
+        })
+        .end((error, res) => {
+          if (error) done(error);
+          expect(res).to.be.an("object");
+          expect(res).to.have.status(401);
+          expect(res.body).to.have.keys("status", "data");
+          expect(res.body.status).to.deep.equal("error");
+          expect(res.body.data).to.deep.equals('Token is not provided');
+          done();
+        });
+    });
+    it("should return a 401 status if token is not correct", done => {
+      chai
+        .request(app)
+        .post("/api/v2/entries")
+        .set('Authorization', 'oops')
+        .send({
+          title: "title one",
+          description: 'description one'
+        })
+        .end((error, res) => {
+          if (error) done(error);
+          expect(res).to.be.an("object");
+          expect(res).to.have.status(401);
+          expect(res.body).to.have.keys("status", "data");
+          expect(res.body.status).to.deep.equal("error");
+          expect(res.body.data).to.deep.equals('Unauthorised Token');
+          done();
+        });
+    });
+    it("should return a 201 status if entry was created", done => {
+      chai
+        .request(app)
+        .post("/api/v2/entries")
+        .set('Authorization', token)
+        .send({
+          title: "title one",
+          description: 'description one'
+        })
+        .end((error, res) => {
+          if (error) done(error);
+          expect(res).to.be.an("object");
+          expect(res).to.have.status(201);
+          expect(res.body).to.have.keys("status", "data");
+          expect(res.body.status).to.deep.equal("success");
+          expect(res.body.data).to.have.keys('id', 'email', 'title', 'description', "createdon");
+          expect(res.body.data.title).to.deep.equal("title one");
+          expect(res.body.data.description).to.deep.equal("description one");
+          expect(res.body.data.email).to.deep.equal("user.one@localhost.com");
+          param = res.body.data.id;
+          done();
+        });
+    }); 
+});
+
+describe('PATCH /api/v2/entries/:id', () => {
+  it("should return a 422 status if req.params is not provided", done => {
+      chai
+        .request(app)
+        .patch(`/api/v2/entries`)
+        .set('Authorization', token)   
+        .send({
+          title: 'title one',
+          description: 'description one'
+        })
+        .end((error, res) => {
+          if (error) done(error);
+          expect(res).to.be.an("object");
+          expect(res).to.have.status(404);
+          expect(res.body).to.have.keys("status", "data");
+          expect(res.body.status).to.deep.equal("error");
+          expect(res.body.data).to.deep.equals('Wrong api endpoint, does not exist');
+          done();
+        });
+  });
+  it("should return a 422 status if req.params is not correct", done => {
+      chai
+        .request(app)
+        .patch(`/api/v2/entries/100000`)
+        .set('Authorization', token)   
+        .send({
+          title: 'title one',
+          description: 'description one',
+        })
+        .end((error, res) => {
+          if (error) done(error);
+          expect(res).to.be.an("object");
+          expect(res).to.have.status(404);
+          expect(res.body).to.have.keys("status", "data");
+          expect(res.body.status).to.deep.equal("error");
+          expect(res.body.data).to.deep.equals('ENTRY NOT FOUND');
+          done();
+        });
+  });
+  it("should return a 422 status if title is not provided", done => {
+      chai
+        .request(app)
+        .patch(`/api/v2/entries/${param}`)
+        .set('Authorization', token)   
+        .send({
+          description: 'description one',
+        })
+        .end((error, res) => {
+          if (error) done(error);
+          expect(res).to.be.an("object");
+          expect(res).to.have.status(422);
+          expect(res.body).to.have.keys("status", "data");
+          expect(res.body.status).to.deep.equal("error");
+          expect(res.body.data).to.deep.equals('"title" is required');
+          done();
+        });
+    });
+    it("should return a 422 status if description is not provided", done => {
+      chai
+        .request(app)
+        .patch(`/api/v2/entries/${param}`)
+        .set('Authorization', token)   
+        .send({
+          title: 'title one',
+        })
+        .end((error, res) => {
+          if (error) done(error);
+          expect(res).to.be.an("object");
+          expect(res).to.have.status(422);
+          expect(res.body).to.have.keys("status", "data");
+          expect(res.body.status).to.deep.equal("error");
+          expect(res.body.data).to.deep.equals('"description" is required');
+          done();
+        });
+    });
+    it("should return a 422 status if title has more than 20 characters", done => {
+      chai
+        .request(app)
+        .patch(`/api/v2/entries/${param}`)
+        .set('Authorization', token)
+        .send({
+          title: "somereallylongnamethatimadeupitistrulylongadfdfdfdfdsfd",
+          description: 'description one',
+        })
+        .end((error, res) => {
+          if (error) done(error);
+          expect(res).to.be.an("object");
+          expect(res).to.have.status(422);
+          expect(res.body).to.have.keys("status", "data");
+          expect(res.body.status).to.deep.equal("error");
+          expect(res.body.data).to.deep.equals(
+            '"title" length must be less than or equal to 20 characters long'
+          );
+          done();
+        });
+    });
+  
+    it("should return a 401 status if Authorization is not provided", done => {
+      chai
+        .request(app)
+        .patch(`/api/v2/entries/${param}`)
+        .send({
+          title: "title one",
+          description: 'description one'
+        })
+        .end((error, res) => {
+          if (error) done(error);
+          expect(res).to.be.an("object");
+          expect(res).to.have.status(401);
+          expect(res.body).to.have.keys("status", "data");
+          expect(res.body.status).to.deep.equal("error");
+          expect(res.body.data).to.deep.equals('Token is not provided');
+          done();
+        });
+    });
+    it("should return a 401 status if token is not correct", done => {
+      chai
+        .request(app)
+        .patch(`/api/v2/entries/${param}`)
+        .set('Authorization', 'oops')
+        .send({
+          title: "title one",
+          description: 'description one'
+        })
+        .end((error, res) => {
+          if (error) done(error);
+          expect(res).to.be.an("object");
+          expect(res).to.have.status(401);
+          expect(res.body).to.have.keys("status", "data");
+          expect(res.body.status).to.deep.equal("error");
+          expect(res.body.data).to.deep.equals('Unauthorised Token');
+          done();
+        });
+    });
+    it("should return a 200 status if entry was updated", done => {
+      chai
+        .request(app)
+        .patch(`/api/v2/entries/${param}`)
+        .set('Authorization', token)
+        .send({
+          title: "title one updated",
+          description: 'description one updated'
+        })
+        .end((error, res) => {
+          if (error) done(error);
+          expect(res).to.be.an("object");
+          expect(res).to.have.status(200);
+          expect(res.body).to.have.keys("status", "data");
+          expect(res.body.status).to.deep.equal("success");
+          expect(res.body.data).to.have.keys('id', 'email', 'title', 'description', "createdon");
+          expect(res.body.data.title).to.deep.equal("title one updated");
+          expect(res.body.data.description).to.deep.equal("description one updated");
+          expect(res.body.data.email).to.deep.equal("user.one@localhost.com");
+          done();
+        });
+    });     
 });
